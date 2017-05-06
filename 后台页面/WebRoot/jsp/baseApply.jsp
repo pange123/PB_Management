@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -10,7 +11,7 @@
 <html lang="zh-cn">
 <head>
 <meta charset="UTF-8">
-<title>基地申请</title>
+<title>湖南农业大学基地实习综合管理系统</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
 <meta http-equiv="X-UA-Compatible" content="IE=9">
 <meta name="renderer" content="webkit">
@@ -48,10 +49,14 @@
 			<div class="navbar-right">
 				<!-- Notifications -->
 				<ul class="notifications" avalonctrl="subNotificationsController">
+					<li class="hidden-sm hidden-xs"><a data-toggle="modal" data-target="#help"
+						class="dropdown-toggle notification-icon"> <i
+							class="glyphicon glyphicon-question-sign"><span class="badge"></span></i> <!--ms-if-->
+					</a></li>
 					<li class="hidden-sm hidden-xs"><a href="getMessage.do"
 						class="dropdown-toggle notification-icon"> <i
 							class="icon-envelope"><span class="badge msg"></span></i> <!--ms-if-->
-					</a>
+					</a></li>
 					<li><a href="../loginout.do"
 						class="dropdown-toggle notification-icon"> <i
 							class="icon-remove"></i>
@@ -333,9 +338,19 @@
 										</div>
 									</div>
 
+									<div class="form-group" id="teachingBaseShow" style="display:none">
+
+										<label class="col-md-3 control-label">校外实习基地申请材料下载</label>
+										<div class="col-md-6">
+											<ul id="baseFileDownLoad">
+												<li><a href="../material/baseFile/outSchoolTeachingBase.zip">校外教学实习基地申报材料汇总</a></li>
+											</ul>
+										</div>
+									</div>
+
 									<div class="form-group">
 
-										<label class="col-md-3 control-label">申请材料</label>
+										<label id="addspan" class="col-md-3 control-label">实习基地申请材料上传</label>
 										<div class="col-md-6">
 											<input type="file" id="applyfile" placeholder=""
 												name="material_path">
@@ -414,6 +429,26 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal fade bs-example-modal-sm" id="help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background:#3071a9; color:#FFF">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">演示视频</h4>
+      </div>
+      <div class="modal-body text-center">
+ 	    <div class="row">   
+    		<div class="col-md-12 helpcolor"><a href="../audio/userMedia.rar">普通用户功能演示视频</a></div>
+  	   </div>
+  	   <div class="row" style="margin-top:20px;">
+  	 		 <div class="col-md-12 helpcolor"><a href="../audio/collegeMedia.rar">学院负责人功能演示视频</a></div>  
+  		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<div class="clearfix"></div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
